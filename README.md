@@ -34,7 +34,6 @@ with(project, hist(MSSubClass, breaks="FD", col="blue",  main = "Building Class"
 
 
 #MSZoning
-
 table(project$MSZoning)
 max(table(project$MSZoning))
 min(table(project$MSZoning))
@@ -103,6 +102,7 @@ min(table(project$Neighborhood))
 Neigh <- table(project$Neighborhood)
 barplot(Neigh, names= names(Neigh),col=rainbow(25), las=2, main="Neighborhood") 
 
+
 #Condition1
 table(project$Condition1)
 max(table(project$Condition1))
@@ -152,17 +152,17 @@ barplot(table(project$OverallCond),col=rainbow(9),main="Overall condition",  xla
 
 #YearBuilt
 round(stat.desc(project[,c("YearBuilt")]),0)
-
 g <- ggplot(project,aes(YearBuilt))+ geom_histogram(color="White")
 g <- g+ggtitle('Year Built')
 g +  theme(legend.position="top", axis.text=element_text(size = 5))
 
+
 #YearRemodAdd
 round(stat.desc(project[,c("YearRemodAdd")]),0)
-
 g <- ggplot(project,aes(YearRemodAdd))+ geom_histogram(color="White")
 g <- g+ggtitle('Remodel date')
 g +  theme(legend.position="top", axis.text=element_text(size = 5))
+
 
 #RoofStyle
 table(project$RoofStyle)
@@ -193,5 +193,56 @@ max(table(project$Exterior2nd))
 min(table(project$Exterior2nd))
 Ext2<- table(project$Exterior2nd)
 barplot(Ext2, names= names(Ext2),col=rainbow(16), las=2, main="Ext covering on house, more than one material") 
+
+#MasVnrType
+table(project$MasVnrType)
+max(table(project$MasVnrType))
+min(table(project$MasVnrType))
+barplot(table(project$MasVnrType),col=rainbow(4),main="Masonry veneer type") 
+
+
+#MasVnrArea
+round(stat.desc(project[,c("MasVnrArea")]),0)
+with(project, hist(MasVnrArea, breaks="FD", col="blue",  main = "Masonry veneer area ", xlab = "Masonry veneer area in square feet"))
+
+
+#ExterQual
+table(project$ExterQual)
+max(table(project$ExterQual))
+min(table(project$ExterQual))
+barplot(table(project$ExterQual),col=rainbow(4),main="Exterior material quality") 
+
+
+#ExterCond
+table(project$ExterCond)
+max(table(project$ExterCond))
+min(table(project$ExterCond))
+barplot(table(project$ExterCond),col=rainbow(5),main="Evaluates material on the exterior", xlab = "Material on the exterior") 
+
+
+
+#Foundation
+table(project$Foundation)
+max(table(project$Foundation))
+min(table(project$Foundation))
+barplot(table(project$Foundation),col=rainbow(6),main="Type of foundation") 
+
+#BsmtQual
+table(project$BsmtQual)
+max(table(project$BsmtQual))
+min(table(project$BsmtQual))
+barplot(table(project$BsmtQual),col=rainbow(4),main="Height of the basement") 
+
+
+#BsmtCond
+table(project$BsmtCond)
+max(table(project$BsmtCond))
+min(table(project$BsmtCond))
+barplot(table(project$BsmtCond),col=rainbow(4),main="Basement Condition") 
+
+
+
+
+
 
 
