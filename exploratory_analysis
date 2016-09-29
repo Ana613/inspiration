@@ -1,14 +1,12 @@
 
 # Step 1.  Get the Data
-
 project<- read.csv("C:/Users/anamu/OneDrive/Documents/Capstone Project/Capstone Project/train.csv",  header=T)
 project<-data.frame(project)
-# Eliminating Column Id
 
+# Eliminating Column Id
 project = subset(project, select = -c(Id))
 
 # Step 2.  Exploratory Analysis Clean the Data
-
 # Step 2.1  Checking the Variables  
 # Examine the content
 names(project) 
