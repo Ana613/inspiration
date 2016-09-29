@@ -51,8 +51,6 @@ with(project, hist(LotArea, breaks="FD", col="Yellow",  main = "Lote Area in Squ
 round(stat.desc(project[,c("LotArea")]),0)
 
 
-
-
 #Street
 table(project$Street)
 max(table(project$Street))
@@ -72,10 +70,76 @@ max(table(project$LotShape))
 min(table(project$LotShape))
 barplot(table(project$LotShape),col=c("blue","green", "red","grey"),main="General shape of property",  xlab = "Shape of the Property") 
 
-
 #LandContour
 table(project$LandContour)
 max(table(project$LandContour))
 min(table(project$LandContour))
 barplot(table(project$LandContour),col=c("green","grey", "red","blue"),main="Flatness of the property ",  xlab = "Types of Flatness") 
+
+#Utilities
+table(project$Utilities)
+max(table(project$Utilities))
+min(table(project$Utilities))
+barplot(table(project$Utilities),col=c("yellow", "green"),main="Utilities",  xlab = "Types of Utilities") 
+
+
+#LotConfig
+table(project$LotConfig)
+max(table(project$LotConfig))
+min(table(project$LotConfig))
+barplot(table(project$LotConfig),col=c("blue2", "darkgoldenrod", "deeppink2", "darkgreen", "cyan"),main="Lote Configuration",  xlab = "Types of Lote Configuration") 
+
+
+#LandSlope
+table(project$LandSlope)
+max(table(project$LandSlope))
+min(table(project$LandSlope))
+barplot(table(project$LandSlope),col=c("darkcyan", "deeppink2", "bisque1"),main="Slopes of the Properties",  xlab = "Types of Slope") 
+
+#Neighborhood
+table(project$Neighborhood)
+max(table(project$Neighborhood))
+min(table(project$Neighborhood))
+ 
+Neigh <- table(project$Neighborhood)
+
+barplot(Neigh, names= names(Neigh),col=rainbow(25), las=2, main="Neighborhood") 
+
+#Condition1
+table(project$Condition1)
+max(table(project$Condition1))
+min(table(project$Condition1))
+
+Cond1 <- table(project$Condition1)
+
+barplot(Cond1, names= names(Cond1),col=rainbow(9), las=2, main="Proximity to main road or railroad") 
+
+
+#Condition2
+table(project$Condition2)
+max(table(project$Condition2))
+min(table(project$Condition2))
+
+Cond2<- table(project$Condition2)
+
+barplot(Cond2, names= names(Cond2),col=rainbow(8), las=2, main="Proximity to more than one railroad") 
+
+
+#BldgType
+
+table(project$BldgType)
+max(table(project$BldgType))
+min(table(project$BldgType))
+barplot(table(project$BldgType),col=rainbow(5),main="Types of Dwelling",  xlab = "Types of Dwelling") 
+
+
+
+#HouseStyle
+table(project$HouseStyle)
+max(table(project$HouseStyle))
+min(table(project$HouseStyle))
+barplot(table(project$HouseStyle),col=rainbow(8),main="Style of Dwelling",  xlab = "Style of Dwelling") 
+
+
+
 
