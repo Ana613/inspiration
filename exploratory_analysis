@@ -23,6 +23,8 @@ ncol(project)
 
 attach(project)
 
+#Just as a sample, checking data type of one variable
+#It will used when required
 is.numeric(MSSubClass)
 is.integer(MSSubClass)
 is.factor(MSSubClass)
