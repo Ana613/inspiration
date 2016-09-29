@@ -100,18 +100,14 @@ barplot(table(project$LandSlope),col=c("darkcyan", "deeppink2", "bisque1"),main=
 table(project$Neighborhood)
 max(table(project$Neighborhood))
 min(table(project$Neighborhood))
- 
 Neigh <- table(project$Neighborhood)
-
 barplot(Neigh, names= names(Neigh),col=rainbow(25), las=2, main="Neighborhood") 
 
 #Condition1
 table(project$Condition1)
 max(table(project$Condition1))
 min(table(project$Condition1))
-
 Cond1 <- table(project$Condition1)
-
 barplot(Cond1, names= names(Cond1),col=rainbow(9), las=2, main="Proximity to main road or railroad") 
 
 
@@ -119,14 +115,11 @@ barplot(Cond1, names= names(Cond1),col=rainbow(9), las=2, main="Proximity to mai
 table(project$Condition2)
 max(table(project$Condition2))
 min(table(project$Condition2))
-
 Cond2<- table(project$Condition2)
-
 barplot(Cond2, names= names(Cond2),col=rainbow(8), las=2, main="Proximity to more than one railroad") 
 
 
 #BldgType
-
 table(project$BldgType)
 max(table(project$BldgType))
 min(table(project$BldgType))
@@ -141,5 +134,64 @@ min(table(project$HouseStyle))
 barplot(table(project$HouseStyle),col=rainbow(8),main="Style of Dwelling",  xlab = "Style of Dwelling") 
 
 
+#OverallQual
+project$OverallQual<-factor(project$OverallQual)
+table(project$OverallQual)
+max(table(project$OverallQual))
+min(table(project$OverallQual))
+barplot(table(project$OverallQual),col=rainbow(10),main="Overall quality",  xlab = "Overall material and finish quality") 
+
+
+#OverallCond
+project$OverallCond<-factor(project$OverallCond)
+table(project$OverallCond)
+max(table(project$OverallCond))
+min(table(project$OverallCond))
+barplot(table(project$OverallCond),col=rainbow(9),main="Overall condition",  xlab = "Overall condition Rating") 
+
+
+#YearBuilt
+round(stat.desc(project[,c("YearBuilt")]),0)
+
+g <- ggplot(project,aes(YearBuilt))+ geom_histogram(color="White")
+g <- g+ggtitle('Year Built')
+g +  theme(legend.position="top", axis.text=element_text(size = 5))
+
+#YearRemodAdd
+round(stat.desc(project[,c("YearRemodAdd")]),0)
+
+g <- ggplot(project,aes(YearRemodAdd))+ geom_histogram(color="White")
+g <- g+ggtitle('Remodel date')
+g +  theme(legend.position="top", axis.text=element_text(size = 5))
+
+#RoofStyle
+table(project$RoofStyle)
+max(table(project$RoofStyle))
+min(table(project$RoofStyle))
+barplot(table(project$RoofStyle),col=rainbow(6),main="Roof Style",  xlab = "Roof Style") 
+
+
+#RoofMatl
+table(project$RoofMatl)
+max(table(project$RoofMatl))
+min(table(project$RoofMatl))
+RoofM<- table(project$RoofMatl)
+barplot(RoofM, names= names(RoofM),col=rainbow(8), las=2, main="Roof Material") 
+
+
+#Exterior1st
+table(project$Exterior1st)
+max(table(project$Exterior1st))
+min(table(project$Exterior1st))
+Ext1<- table(project$Exterior1st)
+barplot(Ext1, names= names(Ext1),col=rainbow(15), las=2, main="Exterior covering on house") 
+
+
+#Exterior2nd
+table(project$Exterior2nd)
+max(table(project$Exterior2nd))
+min(table(project$Exterior2nd))
+Ext2<- table(project$Exterior2nd)
+barplot(Ext2, names= names(Ext2),col=rainbow(16), las=2, main="Ext covering on house, more than one material") 
 
 
